@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Futuristic dark theme with neon accents */
+    --background: 240 80% 3%;
+    --background-end: 240 60% 5%;
+    --foreground: 210 100% 95%;
+
+    --card: 240 30% 8%;
+    --card-foreground: 210 100% 95%;
+
+    --popover: 240 40% 10%;
+    --popover-foreground: 210 100% 95%;
+
+    /* Neon cyan primary */
+    --primary: 180 100% 50%;
+    --primary-foreground: 240 80% 5%;
+
+    /* Neon magenta accent */
+    --secondary: 320 100% 60%;
+    --secondary-foreground: 240 80% 5%;
+
+    --muted: 240 20% 15%;
+    --muted-foreground: 220 20% 60%;
+
+    --accent: 280 100% 70%;
+    --accent-foreground: 240 80% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 100% 95%;
+
+    --border: 240 20% 20%;
+    --input: 240 30% 15%;
+    --ring: 180 100% 50%;
+
+    --radius: 1rem;
+    
+    /* Custom neon glow colors */
+    --glow-cyan: 180 100% 50%;
+    --glow-magenta: 320 100% 60%;
+    --glow-purple: 280 100% 70%;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Same as root for consistent dark theme */
+    --background: 240 80% 3%;
+    --background-end: 240 60% 5%;
+    --foreground: 210 100% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-background to-[hsl(var(--background-end))] text-foreground font-poppins;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl;
+  }
+  
+  .neon-glow-cyan {
+    box-shadow: 0 0 20px hsl(var(--glow-cyan) / 0.3), 0 0 40px hsl(var(--glow-cyan) / 0.1);
+  }
+  
+  .neon-glow-magenta {
+    box-shadow: 0 0 20px hsl(var(--glow-magenta) / 0.3), 0 0 40px hsl(var(--glow-magenta) / 0.1);
+  }
+  
+  .neon-glow-mixed {
+    box-shadow: 
+      0 0 20px hsl(var(--glow-cyan) / 0.2),
+      0 0 40px hsl(var(--glow-magenta) / 0.15),
+      0 0 60px hsl(var(--glow-purple) / 0.1);
+  }
+}
